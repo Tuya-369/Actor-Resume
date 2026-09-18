@@ -1,0 +1,349 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500&family=Playfair+Display:wght@500;600&display=swap");
+@import "tailwindcss";
+
+:root {
+  --ink: #e9edf0;
+  --line: rgba(178, 202, 216, 0.16);
+  --night: #03090e;
+  --gold: #be9a64;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #101b24;
+}
+body {
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.portfolio-shell {
+  min-height: 100vh;
+  padding: 14px;
+  background: radial-gradient(
+    circle at 50% 0,
+    #263743 0,
+    #0d1820 55%,
+    #05090c 100%
+  );
+}
+.portfolio-frame {
+  max-width: 1160px;
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid #5a6e7d;
+  background: var(--night);
+  box-shadow:
+    0 0 0 4px #081016,
+    0 18px 48px #0009;
+}
+.hero {
+  height: 362px;
+  position: relative;
+  background-size: cover;
+  background-position: center 38%;
+}
+.hero-shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(2, 8, 13, 0.96) 0%,
+      rgba(2, 8, 13, 0.52) 44%,
+      rgba(2, 8, 13, 0.03) 100%
+    ),
+    linear-gradient(0deg, #03090e 0%, transparent 35%);
+}
+.hero-copy {
+  position: relative;
+  z-index: 1;
+  padding: 91px 0 0 10.5%;
+}
+.eyebrow {
+  display: block;
+  color: #aeb8bf;
+  font:
+    500 9px/1 "DM Mono",
+    monospace;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+h1,
+h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0;
+  margin: 0;
+}
+h1 {
+  font-size: clamp(43px, 5vw, 69px);
+  line-height: 1.1;
+}
+.hero-rule {
+  display: block;
+  width: 50px;
+  border-top: 1px solid #c6cfd3;
+  margin: 16px 0;
+}
+.hero-copy p {
+  margin: 0;
+  color: #d5dade;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.socials {
+  display: flex;
+  gap: 11px;
+  margin-top: 22px;
+}
+.socials a {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border: 1px solid #96a2a9;
+  border-radius: 50%;
+  font-size: 10px;
+  transition: 0.2s ease;
+}
+.socials a:hover {
+  color: var(--gold);
+  border-color: var(--gold);
+}
+.about {
+  min-height: 230px;
+  display: grid;
+  grid-template-columns: 200px minmax(0, 425px);
+  gap: 45px;
+  align-items: center;
+  justify-content: center;
+  padding: 26px 50px;
+  border-bottom: 1px solid var(--line);
+}
+.portrait {
+  align-self: stretch;
+  min-height: 168px;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  filter: saturate(0.8);
+}
+.about h2,
+.filmography h2 {
+  font-size: 25px;
+  line-height: 1.2;
+}
+.about h2 {
+  margin: 5px 0 12px;
+}
+.about-copy > p {
+  max-width: 390px;
+  margin: 0;
+  color: #cad2d7;
+  font-size: 12px;
+  line-height: 1.45;
+}
+.roles {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 18px;
+  color: #96a6b0;
+  font:
+    8px "DM Mono",
+    monospace;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.roles i {
+  width: 36px;
+  border-top: 1px solid var(--gold);
+}
+.roles span + span::before {
+  content: "/";
+  color: #64737d;
+  margin-right: 15px;
+}
+.filmography {
+  padding: 24px 8%;
+}
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 15px;
+}
+.filmography h2 {
+  margin-top: 5px;
+}
+.view-all {
+  color: #bec8ce;
+  font-size: 10px;
+}
+.movies {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 19px;
+}
+.movie {
+  min-width: 0;
+  border: 1px solid #20313d;
+  border-radius: 5px;
+  overflow: hidden;
+  background: #071119;
+}
+.movie-art {
+  height: 124px;
+  background-size: cover;
+  background-position: center;
+}
+.movie-info {
+  padding: 9px 10px 10px;
+}
+.movie h3 {
+  overflow: hidden;
+  margin: 0;
+  color: #e5e9eb;
+  font:
+    500 12px "Playfair Display",
+    Georgia,
+    serif;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.movie-info span {
+  display: block;
+  margin: 2px 0 8px;
+  color: #9ba9b2;
+  font:
+    8px "DM Mono",
+    monospace;
+}
+.movie-info a {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  align-items: center;
+  height: 22px;
+  border: 1px solid #7c8990;
+  border-radius: 12px;
+  color: #dde3e5;
+  font-size: 7px;
+  transition: 0.2s ease;
+}
+.movie-info a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+.movie-info b {
+  font-size: 7px;
+}
+footer {
+  padding: 2px 20px 18px;
+  color: #91a1ab;
+  text-align: center;
+  font:
+    9px "DM Mono",
+    monospace;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+@media (max-width: 700px) {
+  .portfolio-shell {
+    padding: 8px;
+  }
+  .hero {
+    height: 280px;
+    background-position: 59% center;
+  }
+  .hero-shade {
+    background:
+      linear-gradient(90deg, rgba(2, 8, 13, 0.91), rgba(2, 8, 13, 0.23)),
+      linear-gradient(0deg, #03090e, transparent 42%);
+  }
+  .hero-copy {
+    padding: 69px 0 0 9%;
+  }
+  .hero-copy p {
+    font-size: 10px;
+  }
+  .about {
+    min-height: 0;
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 17px;
+    padding: 20px;
+    align-items: start;
+  }
+  .portrait {
+    min-height: 100px;
+  }
+  .about h2,
+  .filmography h2 {
+    font-size: 18px;
+  }
+  .about-copy > p {
+    font-size: 9px;
+  }
+  .roles {
+    gap: 7px;
+    margin-top: 11px;
+    font-size: 6px;
+    letter-spacing: 0.8px;
+  }
+  .roles i {
+    width: 15px;
+  }
+  .roles span + span::before {
+    margin-right: 7px;
+  }
+  .filmography {
+    padding: 20px;
+  }
+  .movies {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .movie-art {
+    height: 116px;
+  }
+  .movie-info {
+    padding: 8px;
+  }
+  .movie h3 {
+    font-size: 11px;
+  }
+  .section-heading {
+    margin-bottom: 11px;
+  }
+  footer {
+    padding: 2px 5px 16px;
+    font-size: 7px;
+    letter-spacing: 3px;
+  }
+}
+@media (max-width: 370px) {
+  .about {
+    grid-template-columns: 94px minmax(0, 1fr);
+    padding: 15px;
+  }
+  .portrait {
+    min-height: 88px;
+  }
+  .about h2 {
+    font-size: 16px;
+  }
+  .roles {
+    display: none;
+  }
+  .filmography {
+    padding: 15px;
+  }
+}
