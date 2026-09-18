@@ -164,38 +164,17 @@ function ProfilePortfolio() {
   return (
     <main className="portfolio-shell">
       <section className="portfolio-frame">
-        <header
-          className="hero"
-          style={{ backgroundImage: `url(${profile.image})` }}
-        >
-          <div className="hero-shade" />
-          <div className="hero-index" aria-hidden="true">
-            01 / POST
-          </div>
-          <div className="hero-copy">
-            <span className="eyebrow">{profile.title}</span>
-            <h1>{profile.name}</h1>
-            <span className="hero-rule" />
-            <p>
-              Дүрс бүрийн цаана түүх бий.
-              <br />
-              Түүнийг хэмнэл, өнгөөр өгүүлнэ.
-            </p>
-            <nav className="socials" aria-label="Холбоосууд">
-              <a href="mailto:hishgee.maze@gmail.com" aria-label="И-мэйл">
-                @
-              </a>
-              <a href="tel:+97685409982" aria-label="Утас">
-                +
-              </a>
-              <a href="#projects" aria-label="Бүтээлүүд">
-                ▶
-              </a>
-            </nav>
-          </div>
+        <header className="site-header">
+          <span className="site-name">{profile.name}</span>
+          <nav className="site-nav" aria-label="Үндсэн цэс">
+            <a href="#about">Миний тухай</a>
+            <a href="#projects">Бүтээлүүд</a>
+            <a href="#experience">Туршлага</a>
+            <a href="#contact">Холбоо барих</a>
+          </nav>
         </header>
 
-        <section className="about" id="contact">
+        <section className="about" id="about">
           <div
             className="portrait"
             style={{ backgroundImage: `url(${profile.portrait})` }}
@@ -210,33 +189,7 @@ function ProfilePortfolio() {
                 <span key={role}>{role}</span>
               ))}
             </div>
-            <dl className="contact-details">
-              {profile.details.map(([label, value, href]) => (
-                <div key={label}>
-                  <dt>{label}</dt>
-                  <dd>{href ? <a href={href}>{value}</a> : value}</dd>
-                </div>
-              ))}
-            </dl>
           </div>
-        </section>
-
-        <section className="filmography experience" aria-label="Ажлын туршлага">
-          <div className="section-kicker">
-            <span className="eyebrow">Experience</span>
-            <span>01</span>
-          </div>
-          <a
-            className="experience-entry"
-            href="https://www.facebook.com/Relymongolia"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>2021-2023</span>
-            <strong>Rely Marketing Agency</strong>
-            <em>Зураглаач, эвлүүлэгч</em>
-            <b aria-hidden="true">↗</b>
-          </a>
         </section>
 
         <section className="filmography" id="projects">
@@ -271,6 +224,43 @@ function ProfilePortfolio() {
               </div>
             </section>
           ))}
+        </section>
+
+        <section
+          className="filmography experience"
+          id="experience"
+          aria-label="Ажлын туршлага"
+        >
+          <div className="section-kicker">
+            <span className="eyebrow">Experience</span>
+            <span>01</span>
+          </div>
+          <a
+            className="experience-entry"
+            href="https://www.facebook.com/Relymongolia"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>2021-2023</span>
+            <strong>Rely Marketing Agency</strong>
+            <em>Зураглаач, эвлүүлэгч</em>
+            <b aria-hidden="true">↗</b>
+          </a>
+        </section>
+
+        <section className="contact-section" id="contact">
+          <div>
+            <span className="eyebrow">Contact</span>
+            <h2>Холбоо барих</h2>
+          </div>
+          <dl className="contact-details">
+            {profile.details.map(([label, value, href]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{href ? <a href={href}>{value}</a> : value}</dd>
+              </div>
+            ))}
+          </dl>
         </section>
         <footer>Кино бүр өөрийн хэмнэлтэй</footer>
       </section>
