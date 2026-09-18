@@ -10,6 +10,23 @@ const profile = {
     ["Утас", "8540 9982", "tel:+97685409982"],
     ["Төрсөн огноо", "1999.09.07"],
   ],
+  experience: [
+    [
+      "2018 - одоо",
+      "Хур Продакшин",
+      "Эвлүүлэгч, өнгө шүүлт",
+      "/Logo/Hur-prduction.jpg",
+      "https://www.facebook.com/HURPRODUC",
+    ],
+    [
+      "2021-2023",
+      "Rely Marketing Agency",
+      "Зураглаач, эвлүүлэгч",
+      "/Logo/marketing agency.jpg",
+      "https://www.facebook.com/Relymongolia",
+    ],
+    ["2023 - одоо", "Zaraa Film", "Эвлүүлэгч, өнгө шүүлт", "/Logo/zraa 2.png"],
+  ],
   films: [
     [
       "Эрдэнэсийн өв",
@@ -233,19 +250,39 @@ function ProfilePortfolio() {
         >
           <div className="section-kicker">
             <span className="eyebrow">Experience</span>
-            <span>01</span>
+            <span>{profile.experience.length.toString().padStart(2, "0")}</span>
           </div>
-          <a
-            className="experience-entry"
-            href="https://www.facebook.com/Relymongolia"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span>2021-2023</span>
-            <strong>Rely Marketing Agency</strong>
-            <em>Зураглаач, эвлүүлэгч</em>
-            <b aria-hidden="true">↗</b>
-          </a>
+          <div className="experience-list">
+            {profile.experience.map(([period, company, role, logo, link]) => {
+              const content = (
+                <>
+                  <span className="experience-period">{period}</span>
+                  <span className="experience-logo">
+                    {logo && <img src={logo} alt={`${company} logo`} />}
+                  </span>
+                  <strong>{company}</strong>
+                  <em>{role}</em>
+                  {link && <b aria-hidden="true">↗</b>}
+                </>
+              );
+
+              return link ? (
+                <a
+                  className="experience-entry"
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={company}
+                >
+                  {content}
+                </a>
+              ) : (
+                <article className="experience-entry" key={company}>
+                  {content}
+                </article>
+              );
+            })}
+          </div>
         </section>
 
         <section className="contact-section" id="contact">
